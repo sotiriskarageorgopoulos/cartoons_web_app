@@ -50,5 +50,3 @@ class SentimentAnalyzer:
         subtitles_df.drop(columns=['rating'],inplace=True)
         videos_df["norm_rating"] = (videos_df["rating"] - videos_df["rating"].min())/(videos_df["rating"].max() - videos_df["rating"].min())
         return videos_df  
-
-print(SentimentAnalyzer.analyze_videos_sentiments("miney mouse"))

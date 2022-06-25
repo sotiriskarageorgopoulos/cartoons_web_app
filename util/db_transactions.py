@@ -174,7 +174,8 @@ class DBTransactions:
                         ON v.video_id = qv.video_id
                         INNER JOIN user_queries AS uq
                         ON uq.query_id = qv.query_id
-                        WHERE uq.query = '{query}';
+                        WHERE uq.query = '{query}'
+                        ORDER BY qv.norm_rating, v.likes, v.views DESC;
                         """)
             con.commit()
         except:
@@ -184,9 +185,3 @@ class DBTransactions:
             results = cursor.fetchall()
             con.close()
             return results 
-
-# subtitles_df = pd.read_csv('./subtitles.csv')
-# videos_df = pd.read_csv('./videos.csv')
-# DBTransactions.connect()
-# DBTransactions.fetchTables()
-# DBTransactions.insert(videos_df,subtitles_df,"mickey mouse")
