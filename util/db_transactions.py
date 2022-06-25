@@ -12,7 +12,7 @@ class DBTransactions:
         - Connection.
         '''
         script_dir = os.path.dirname(__file__)
-        db_path = os.path.join(script_dir, 'db/cartoons.db')
+        db_path = os.path.join(script_dir, '../db/cartoons.db')
         os.makedirs(os.path.dirname(db_path), exist_ok=True)
         
         connection = sq.connect(db_path)
