@@ -53,11 +53,6 @@ body {
     color: var(--clr-primary-5)
 }
 
-.spinner-border {
-    width: 80px;
-    height: 80px;
-}
-
 .videos-header {
     color: var(--clr-primary-5);
     font-weight: 900;
