@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 from util.sentiment_analyzer import SentimentAnalyzer
-from flask import Flask,request,jsonify,redirect,Response,render_template,url_for,session
+from flask import Flask,request,render_template
 from flask_paginate import Pagination, get_page_args
 
 if __name__ == '__main__':

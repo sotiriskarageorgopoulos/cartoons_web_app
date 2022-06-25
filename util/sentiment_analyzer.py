@@ -21,7 +21,6 @@ class SentimentAnalyzer:
             return DBTransactions.fetch_videos_by_query(self.__query)
         else:
             videos_df,subtitles_df = Preprocess.search_videos(self.__query)
-            print(videos_df,subtitles_df)
             if videos_df is not None and subtitles_df is not None:
                 videos_ids = videos_df["video_id"].unique()
                 is_exist_list, db_videos_ids = DBTransactions.is_exist_videos_list(videos_ids)
