@@ -33,9 +33,10 @@ body {
     border: unset;
     outline: unset;
     border-radius: 0;
+    color: var(--clr-primary-5);
 }
 
-.btn-light:active, 
+.btn-light:active,
 .btn-light {
     border-radius: 0;
     color: var(--clr-primary-5) !important;
@@ -50,7 +51,7 @@ body {
     border-color: unset;
     box-shadow: unset;
     color: var(--clr-primary-5)
-} 
+}
 
 .spinner-border {
     width: 80px;
@@ -58,17 +59,48 @@ body {
 }
 
 .videos-header {
-    color: var(--clr-primary-10);
+    color: var(--clr-primary-5);
+    font-weight: 900;
+    font-family: Lobster;
     text-align: center;
 }
 
 .btns-group {
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
 
 .lv-p,
 .video-title-header {
     color: var(--clr-primary-5);
     text-align: center;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: var(--clr-primary-5);
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: var(--clr-primary-5) !important;
+    border: solid 1px var(--clr-primary-5) !important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: var(--clr-primary-5) !important;
+    border: solid 1px var(--clr-primary-5);
 }

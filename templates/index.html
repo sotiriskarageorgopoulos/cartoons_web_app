@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./static/index.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
     <title>Cartoons App</title>
 </head>
 <body>
@@ -19,51 +19,39 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                    <div class="mb-3">
+                    <form class="mb-3" method="POST">
                       <label for="search_input" class="form-label">Search</label>
                       <div class="d-flex">
                         <input type="text" name="query" class="form-control" id="search_input" aria-describedby="search_input">
-                        <button type="button" class="btn btn-light"><i class="fas fa-search"></i></button>
+                        <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
                       </div>
-                    </div>
+                    </form>
             </div>
             <div class="col-sm-4"></div>
         </div>
+        {% if videos != []%}
         <div class="row mt-5">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border spinner-border-lg text-light" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <h2 class="videos-header">Cartoon Videos</h2>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h1 class="videos-header">Cartoon Videos</h1>
                 <div class="btns-group mt-3">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-light">1</button>
-                        <button type="button" class="btn btn-light">2</button>
-                        <button type="button" class="btn btn-light">3</button>
-                        <button type="button" class="btn btn-light">4</button>
-                    </div>
+                    {{ pagination.links }}
                 </div>
                 <ul class="list-group mt-3">
+                    {% for v in videos %}
                     <li class="list-group-item">
-                        <h2 class="video-title-header">Mickey Mouse</h2>
+                        <h2 class="video-title-header">{{v[1]}}</h2>
                         <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/SvLSt-PDU5s" title="YouTube video" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/{{v[0]}}" title="{{v[1]}}" allowfullscreen></iframe>
                         </div>
-                        <p class="lv-p"><i class="fas fa-thumbs-up"></i> 10000  <i class="fas fa-eye"></i> 10000</p>
+                        <p class="lv-p"><i class="fas fa-thumbs-up"></i> {{v[4]}}  <i class="fas fa-eye"></i> {{v[3]}}</p>
                     </li>
+                    {% endfor %}
                   </ul>
             </div>
-            <div class="col-sm-4"></div>
+            <div class="col-sm-3"></div>
         </div>
+        {% endif %}
       </div>
 </body>
 <!-- JavaScript Bundle with Popper -->

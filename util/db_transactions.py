@@ -175,7 +175,7 @@ class DBTransactions:
                         INNER JOIN user_queries AS uq
                         ON uq.query_id = qv.query_id
                         WHERE uq.query = '{query}'
-                        ORDER BY qv.norm_rating, v.likes, v.views DESC;
+                        ORDER BY qv.norm_rating DESC, v.likes DESC, v.views DESC;
                         """)
             con.commit()
         except:
