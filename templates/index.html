@@ -44,8 +44,12 @@
                         <div class="ratio ratio-16x9">
                             <iframe src="https://www.youtube.com/embed/{{v[0]}}" title="{{v[1]}}" allowfullscreen></iframe>
                         </div>
-                        <p class="lv-p"><i class="fas fa-thumbs-up"></i> {{v[4]}}  <i class="fas fa-eye"></i> {{v[3]}}</p>
-                    </li>
+                        {% if v[6] == 1.0 %}
+                        <p class="lv-p"><i class="fas fa-thumbs-up"></i> {{v[4]}}  <i class="fas fa-eye"></i> {{v[3]}} <i class="fas fa-smile"></i> sentiment rating: {{v[6]}}</p>
+                        {% else %}
+                        <p class="lv-p"><i class="fas fa-thumbs-up"></i> {{v[4]}}  <i class="fas fa-eye"></i> {{v[3]}} <i class="fas fa-smile"></i> sentiment rating: {{'%0.3f'| format(v[6]|float)}}</p>
+                        {% endif%}
+                      </li>
                     {% endfor %}
                   </ul>
             </div>
